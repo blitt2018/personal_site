@@ -2,5 +2,6 @@
 title: "Personal Website"
 ---
 
-Hello, World!
+## My Projects ##
 
+Although I am generally very slow to keep my github updated, here is a summary of the various projects I have been or currently am involved in... 
