@@ -1,5 +1,5 @@
 ---
-title: "Ben Litterer Personal Site"
+title: "Ben Litterer's Personal Site"
 ---
 
 ## My Projects ##
