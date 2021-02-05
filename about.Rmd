@@ -2,12 +2,13 @@
 title: "About Me"
 ---
 
+![](myPhoto.png)
 
-Hello! I'm Ben Litterer, and this is my personal website, dedicated to my research using data science to answer questions in biology, linguistics, and the social sciences. 
+Hello! My name is Ben Litterer, and this is my personal website, dedicated to my research using data science to answer questions in biology, linguistics, and the social sciences. 
 
-## Educational Background: ##
+# Educational Background: #
 I currently study Data Science and French at Iowa State University in Ames, Iowa. I will graduate in 2022 and hope to pursue a graduate degree afterwards. 
 
-## Research Interests: ##
-I use computational methods to better understand proteins. In particular, I am intersted in how machine learning and sequence matching can be applied towards the improvement of protein functional assignment. Given the amount of sequence data available, I work to find and verify methods that would enable this information to be leveraged to understand more complex features like protein function. I'm also interested in the intersection of biology and linguistics. Given that protein functions are stored as structured vocabulary terms in a hierarchy, I am interested in ways to better relate and quantify the these pieces of biological meaning. In the future I hope to do more work in semantics, linguistics, proteomics, and machine learning. 
+# Research Interests: #
+I use computational methods to better understand proteins. In particular, I am interested in how machine learning and sequence matching can be applied towards the improvement of protein functional assignment. Given the amount of sequence data available, I work to find and verify methods that would enable this information to be leveraged to understand more complex features like protein function. I'm also interested in the intersection of biology and linguistics. Given that protein functions are stored as structured vocabulary terms in a hierarchy, I am interested in ways to better relate and quantify these pieces of biological meaning. In the future I hope to do more work in semantics, linguistics, proteomics, and machine learning. 
 
