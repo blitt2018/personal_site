@@ -13,12 +13,22 @@
 
 <title>Ben Litterer’s Personal Site</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.27/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -33,11 +43,6 @@
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -50,32 +55,7 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 
 
@@ -86,10 +66,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -106,40 +82,16 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -167,7 +119,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -179,7 +131,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -189,11 +141,28 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.parent().addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -205,13 +174,12 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -219,16 +187,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -272,20 +233,17 @@ $(document).ready(function () {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Personal Website</a>
+      <a class="navbar-brand" href="index.html">Ben Litterer</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
   <a href="index.html">Home</a>
-</li>
-<li>
-  <a href="about.html">About Me</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -295,7 +253,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -304,16 +262,59 @@ $(document).ready(function () {
 </div>
 
 
-<div id="my-projects" class="section level2">
-<h2>My Projects</h2>
-<p>Although I am generally very slow to keep my github updated, here is a summary of the various projects I have been or currently am involved in…</p>
+<p><img src="UMSI_headshot.JPG" style="width:15.0%" /></p>
+<div id="hello-and-welcome-to-my-website" class="section level2">
+<h2>Hello and welcome to my website!</h2>
 </div>
-<div id="protein-functional-annotations" class="section level1">
-<h1>Protein Functional Annotations</h1>
-<p>Given the incredibly large amount of sequences, there is a great opportunity to leverage this data to find more interesting aspects of proteins such as their function. Recently, high performing methods have featured machine learning algorithms such as k nearest neighbors classification or even neural networks. All of the high performing methods are still highly dependant on sequence alignment tools, meaning that there is a bottleneck in this area. A labmate of mine and member of Jernigan lab, Kejue Jia, has created a sequence alignment tool that takes structural information into account when finding sequence matches. I have applied this new methodology to annotate proteins with functions that are much more specific than those found with convential methods. This method finds many protein functions that have only previously been found through experimental methods, which are much more costly and slow.</p>
-<p>Portions of this work can be found in a publication by the American Chemical Society and on my personal github account.</p>
-<p>ACS publication: <a href="https://pubs.acs.org/doi/abs/10.1021/bk-2020-1356.ch006" class="uri">https://pubs.acs.org/doi/abs/10.1021/bk-2020-1356.ch006</a></p>
-<p>github: <a href="https://github.com/blitt2018" class="uri">https://github.com/blitt2018</a></p>
+<div id="my-research" class="section level1">
+<h1>My Research</h1>
+<p>I’m a third-year PhD Student at the University of Michigan, where I
+work with <a href="https://dallascard.github.io//">Dallas Card</a> and
+<a href="https://jurgens.people.si.umich.edu/">David Jurges</a>. My
+primary interests surround how to build and apply Natural Language
+Processing systems to better understand media, politics, and
+interpersonal communication. My recent work explores some of these
+questions in <a
+href="https://aclanthology.org/2023.findings-emnlp.420/">online news</a>
+and <a href="https://aclanthology.org/2023.sicon-1.7/">Reddit</a>. If
+you’d like to get in touch, you can email me at blitt@umich.edu !</p>
+<p>I’m currently pursuing a number of research questions such as:</p>
+<ul>
+<li>How can NLP tools and data be applied to understand the podcast
+ecosystem?<br />
+</li>
+<li>How do we incorporate audio information for a richer representation
+of spoken language?</li>
+<li>How do we appropriately model influence and status in interpersonal
+communication?</li>
+</ul>
+<p>In the future, I’m interested in studying broader research domains
+such as:</p>
+<ul>
+<li>The application of causal inference techniques with text-data as
+features, particularly in applied, policy-relevant domains</li>
+<li>Techniques for identifying the temporal evolution of intellectual
+communities, particularly in digital media environments</li>
+</ul>
+</div>
+<div id="personal-background" class="section level1">
+<h1>Personal Background</h1>
+<p>Before starting my PhD, I completed my undergraduate degree at Iowa
+State University. During this time I worked with <a
+href="https://www.bbmb.iastate.edu/people/robert-jernigan">Robert
+Jernigan</a> on problems in Computational Biology, with a focus on the
+identification of the function of proteins. I also spent time working
+with <a href="https://soc-cj.iastate.edu/profiles/shawn-dorius/">Shawn
+Dorius</a> and <a
+href="https://www.datascience.iastate.edu/people/cassandra-dorius">Cassandra
+Dorius</a> at the Public Science Collaborative studying substance-use
+and community health in Iowa. Finally, I spent time at Worcester
+Polytechnic Institute working on NLP applications for mental health,
+where I was advised by <a
+href="https://www.bryant.edu/academics/faculty/tlachac-ml">ML
+Tlachac</a> and <a
+href="https://www.wpi.edu/people/faculty/rundenst">Elke
+Rundensteiner</a>.</p>
 </div>
 
 
@@ -343,7 +344,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>

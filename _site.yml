@@ -4,4 +4,4 @@ navbar:
   title: "Ben Litterer"
   left:
     - text: "Home"
-      href: about.html
+      href: index.html
