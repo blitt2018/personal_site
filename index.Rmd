@@ -1,5 +1,5 @@
 ---
-title: "Ben Litterer's Personal Site"
+title: "Ben Litterer"
 ---
 
 ![](UMSI_headshot.JPG){width=15%}
@@ -22,3 +22,10 @@ In the future, I'm interested in studying broader research domains such as:
 
 # Personal Background # 
 Before starting my PhD, I completed my undergraduate degree at Iowa State University. During this time I worked with [Robert Jernigan](https://www.bbmb.iastate.edu/people/robert-jernigan) on problems in Computational Biology, with a focus on the identification of the function of proteins. I also spent time working with [Shawn Dorius](https://soc-cj.iastate.edu/profiles/shawn-dorius/) and [Cassandra Dorius](https://www.datascience.iastate.edu/people/cassandra-dorius) at the Public Science Collaborative studying substance-use and community health in Iowa. Finally, I spent time at Worcester Polytechnic Institute working on NLP applications for mental health, where I was advised by [ML Tlachac](https://www.bryant.edu/academics/faculty/tlachac-ml) and [Elke Rundensteiner](https://www.wpi.edu/people/faculty/rundenst).
+
+# Updates #
+Here's what I've been up to! For a full list, you can check out my [Google Scholar](https://scholar.google.com/citations?user=kXhY6pkAAAAJ&hl=en&oi=ao)
+
+* "Adventures in Audio" - Podcast research and dataset presented at ICWSM 2024 in Philadelphia 
+* ["Modeling Media Storms and the News Ecosystem"](https://aclanthology.org/2023.findings-emnlp.420.pdf) accepted and presented at EMNLP 2023 (Findings Track)
+* [Exploring Linguistic Style Matching in Online Communities](https://aclanthology.org/2023.sicon-1.7.pdf) accepted and presented at the First Workshop on Social Influence in Conversations at ACL 2023 
