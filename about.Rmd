@@ -6,7 +6,7 @@
 ## Hello and welcome to my website!
 
 # My Research #
-I'm a third-year PhD Student at the University of Michigan, where I work with [Dallas Card](https://dallascard.github.io//) and [David Jurges](https://jurgens.people.si.umich.edu/). My primary interests surround how to build and apply Natural Language Processing systems to better understand media, politics, and interpersonal communication. My recent work explores some of these questions in [online news](https://aclanthology.org/2023.findings-emnlp.420/) and [Reddit](https://aclanthology.org/2023.sicon-1.7/). If you'd like to get in touch, you can email me at blitt\@umich.edu !
+I'm a third-year PhD Student at the University of Michigan, where I work with [Dallas Card](https://dallascard.github.io//) and [David Jurgens](https://jurgens.people.si.umich.edu/). My primary interests surround how to build and apply Natural Language Processing systems to better understand media, politics, and interpersonal communication. My recent work explores some of these questions in [online news](https://aclanthology.org/2023.findings-emnlp.420/) and [Reddit](https://aclanthology.org/2023.sicon-1.7/). If you'd like to get in touch, you can email me at blitt\@umich.edu !
 
 I'm currently pursuing a number of research questions such as: 
 
